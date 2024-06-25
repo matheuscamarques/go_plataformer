@@ -7,9 +7,30 @@ import (
 	"github.com/hajimehoshi/ebiten/v2/vector"
 )
 
+type GameInterface interface {
+}
+
 type Game struct {
 	screenHeight int
 	screenWidth  int
+}
+
+func (g *Game) getScreenHeight() int {
+	return g.screenHeight
+}
+
+func (g *Game) getScreenWidth() int {
+	return g.screenWidth
+}
+
+func (g *Game) SetScreenHeight(height int) error {
+	g.screenHeight = height
+	return nil
+}
+
+func (g *Game) SetScreenWidth(width int) error {
+	g.screenWidth = width
+	return nil
 }
 
 func (g *Game) Update() error {
